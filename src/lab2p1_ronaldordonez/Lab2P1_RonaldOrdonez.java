@@ -19,6 +19,7 @@ public class Lab2P1_RonaldOrdonez {
          Scanner sc = new Scanner(System.in);
          Random random = new Random();
          int respuesta, num1, num2,multi1,multi2,i,j,porcenTrape,jugador1, jugador2,respuesta2, ronda;
+         boolean band=false;
          
          
          do {
@@ -47,15 +48,22 @@ public class Lab2P1_RonaldOrdonez {
              num2=sc.nextInt();
              System.out.println("");
              while(i<=12){
+                 band=false;
                  multi1=num1*i;
                  while(j<=12){
                      multi2=num2*j;
                      if(multi1==multi2){
-                         System.out.print(multi1+" ");}
+                         System.out.print(multi1+" ");
+                        band=true;    
+                         
+                     }
+                     
                      j++;
                  }
-
-
+                 
+                 if (band==false){
+                     System.out.print(" ___ ");
+                 }
                  i++;
                  j=1;
              }
@@ -70,8 +78,8 @@ public class Lab2P1_RonaldOrdonez {
                      
              System.out.println("Juego de Suerte");
              System.out.println(" ");
-                jugador1=random.nextInt(10)+jugador1;
-                jugador2=random.nextInt(10)+jugador2;
+                jugador1=random.nextInt(10)+1+jugador1;
+                jugador2=random.nextInt(10)+1+jugador2;
              do {
                  System.out.println("Ronda "+ronda);
                 System.out.println("Puntos jugador 1 "+jugador1);
@@ -94,8 +102,8 @@ public class Lab2P1_RonaldOrdonez {
                 }
                 else if (respuesta2==3){
                     System.out.println("Siguiente ronda");
-                    jugador1=random.nextInt(10)+jugador1;
-                    jugador2=random.nextInt(10)+jugador2;
+                    jugador1=random.nextInt(10)+1+jugador1;
+                    jugador2=random.nextInt(10)+1+jugador2;
                     
                     
                     ronda++;
@@ -106,7 +114,7 @@ public class Lab2P1_RonaldOrdonez {
                     if (jugador1>jugador2 && jugador1<=20){
                         System.out.println("El ganador fue Jugador 1");
                     }
-                    else if ((jugador1>20 && jugador2>20)|| (jugador1==jugador2)){
+                    else if ((jugador1>20 && jugador2>20) || (jugador1==jugador2)){
                         System.out.println("Fue Empate");
                     }
                     else if (jugador2>jugador1 && jugador2<=20){
@@ -120,7 +128,12 @@ public class Lab2P1_RonaldOrdonez {
                     }                                
                     break;
                 }
-                if (jugador1>20){
+                if (jugador1>20 && jugador2>20){
+                    System.out.println("Fue empate");
+                    break;
+                
+                }
+                else if (jugador1>20){
                     System.out.println(" ");                    
                     System.out.println("El puntaje del jugador 1 fue: "+jugador1);
                     System.out.println("El puntaje del jugador 2 fue: "+jugador2);
@@ -128,7 +141,7 @@ public class Lab2P1_RonaldOrdonez {
                     System.out.println("Gano el jugador 2");
                     break;
                 }
-                if (jugador2>20){
+                else if (jugador2>20){
                     System.out.println(" ");                   
                     System.out.println("El puntaje del jugador 1 fue: "+jugador1);
                     System.out.println("El puntaje del jugador 2 fue: "+jugador2);
@@ -156,24 +169,180 @@ public class Lab2P1_RonaldOrdonez {
              
              //25%
              if (porcenTrape==1){
+                 i=1;
+                 while(i<=4){
+                     j=1;
+                     while(j<=12){
+                        if (i==1){
+                            i++;
+                            continue;
+                         }
+                        else if (i==2){
+                            if (j>=3 && j<4){
+                               System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");
+                            }
+                         }
+                        else if (i==3){
+                            if (j>=2 && j<4){
+                               System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");
+                            }
+                            
+                         }
+                        else if (i==4){
+                            if (j>=1 && j<4){
+                                System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");}
+                        }
+                         
+                         j++;
+                         
+                     }
+                     System.out.println("  ");       
+                 i++;
+                 }                 
+                 
              }
              //50%
              else if (porcenTrape==2){
+             i=1;
+                 while(i<=4){
+                     j=1;
+                     while(j<=12){
+                        if (i==1){
+                            if (j>=4 && j<7){
+                               System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");
+                            }
+                         }
+                        else if (i==2){
+                            if (j>=3 && j<7){
+                               System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");
+                            }
+                         }
+                        else if (i==3){
+                            if (j>=2 && j<7){
+                               System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");
+                            }
+                            
+                         }
+                        else if (i==4){
+                            if (j>=1 && j<7){
+                                System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");}
+                        }
+                         
+                         j++;
+                         
+                     }
+                     System.out.println("  ");       
+                 i++;
+                 }                 
+                     
              }
              //75%
              else if (porcenTrape==3){
+                i=1;
+                 while(i<=4){
+                     j=1;
+                     while(j<=12){
+                        if (i==1){
+                            if (j>=4 && j<10){
+                               System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");
+                            }
+                         }
+                        else if (i==2){
+                            if (j>=3 && j<10){
+                               System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");
+                            }
+                         }
+                        else if (i==3){
+                            if (j>=2 && j<10){
+                               System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");
+                            }
+                            
+                         }
+                        else if (i==4){
+                            if (j>=1 && j<10){
+                                System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");}
+                        }
+                         
+                         j++;
+                         
+                     }
+                     System.out.println("  ");       
+                 i++;
+                 }                 
+                     
              }
              //100%
              else if (porcenTrape==4){
                  i=1;
-                 j=1;
                  while(i<=4){
+                     j=1;
                      while(j<=12){
-                         System.out.print("* ");
-                            j++;
+                        if (i==1){
+                            if (j>=4&&j<=9){
+                               System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");
+                            }
+                         }
+                        else if (i==2){
+                            if (j>=3 && j<=10){
+                               System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");
+                            }
+                         }
+                        else if (i==3){
+                            if (j>=2 && j<=11){
+                               System.out.print("*");
+                            }
+                            else {
+                                System.out.print(" ");
+                            }
+                            
+                         }
+                        else {
+                            System.out.print("*");
+                        }
+                         
+                         j++;
+                         
                      }
-                     System.out.println(" ");    
-                 j=1;    
+                     System.out.println("  ");       
                  i++;
                  }
              }
