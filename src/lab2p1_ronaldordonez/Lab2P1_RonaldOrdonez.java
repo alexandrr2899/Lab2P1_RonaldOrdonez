@@ -4,6 +4,7 @@
  */
 package lab2p1_ronaldordonez;
 import java.util.Scanner;
+import java.util.Random;
 /**
  *
  * @author alexanderordonez
@@ -16,7 +17,8 @@ public class Lab2P1_RonaldOrdonez {
     public static void main(String[] args) {
 
          Scanner sc = new Scanner(System.in);
-         int respuesta, num1, num2,multi1,multi2,i,j;
+         Random random = new Random();
+         int respuesta, num1, num2,multi1,multi2,i,j,porcenTrape,jugador1, jugador2,respuesta2, ronda;
          
          
          do {
@@ -31,7 +33,8 @@ public class Lab2P1_RonaldOrdonez {
              System.out.println(" ");
              System.out.println("Ingrese una opcion valida");}
              System.out.println(" ");
-             
+         
+         //Numeros comunes en multiplicacion
          if (respuesta==1){
              i=1;
              j=1;
@@ -48,26 +51,132 @@ public class Lab2P1_RonaldOrdonez {
                  while(j<=12){
                      multi2=num2*j;
                      if(multi1==multi2){
-                         System.out.println(multi1);}
-                     else 
-                         System.out.println("___");
+                         System.out.print(multi1+" ");}
                      j++;
                  }
+
+
                  i++;
                  j=1;
              }
              
          
          }  
+         // Juego de Suerte
          else if(respuesta==2){
+             jugador1=0;
+             jugador2=0;
+             ronda=1;
+                     
              System.out.println("Juego de Suerte");
              System.out.println(" ");
+                jugador1=random.nextInt(10)+jugador1;
+                jugador2=random.nextInt(10)+jugador2;
+             do {
+                 System.out.println("Ronda "+ronda);
+                System.out.println("Puntos jugador 1 "+jugador1);
+                System.out.println("Puntos jugador 2 "+jugador2);
+                System.out.println(" ");
+                System.out.println("- - - - - - - - - - - - - - -");
+                System.out.println("Que desea hacer?");
+                System.out.println("1. Agregar 1");
+                System.out.println("2. Agregar 2");
+                System.out.println("3. Seguir");
+                System.out.println("4. Terminar");
+                respuesta2= sc.nextInt();
+                if (respuesta2==1){
+                    jugador1=1+jugador1;
+                    System.out.println(jugador1);
+                }
+                else if (respuesta2==2){
+                    jugador1=2+jugador1;
+                    System.out.println(jugador1);
+                }
+                else if (respuesta2==3){
+                    System.out.println("Siguiente ronda");
+                    jugador1=random.nextInt(10)+jugador1;
+                    jugador2=random.nextInt(10)+jugador2;
+                    
+                    
+                    ronda++;
+                }
+                if (ronda==4){
+                    System.out.println("El puntaje del jugador 1 fue: "+jugador1);
+                    System.out.println("El puntaje del jugador 2 fue: "+jugador2);
+                    if (jugador1>jugador2 && jugador1<=20){
+                        System.out.println("El ganador fue Jugador 1");
+                    }
+                    else if ((jugador1>20 && jugador2>20)|| (jugador1==jugador2)){
+                        System.out.println("Fue Empate");
+                    }
+                    else if (jugador2>jugador1 && jugador2<=20){
+                        System.out.println("El ganador fue Jugador 2");
+                    }
+                    else if (jugador1>20){
+                        System.out.println("Gano el jugador 2");
+                    }
+                    else if (jugador2>20){
+                        System.out.println("Ganor el jugador 1");
+                    }                                
+                    break;
+                }
+                if (jugador1>20){
+                    System.out.println(" ");                    
+                    System.out.println("El puntaje del jugador 1 fue: "+jugador1);
+                    System.out.println("El puntaje del jugador 2 fue: "+jugador2);
+                    System.out.println(" ");
+                    System.out.println("Gano el jugador 2");
+                    break;
+                }
+                if (jugador2>20){
+                    System.out.println(" ");                   
+                    System.out.println("El puntaje del jugador 1 fue: "+jugador1);
+                    System.out.println("El puntaje del jugador 2 fue: "+jugador2);
+                    System.out.println("Gano el jugador 1");
+                    System.out.println(" ");
+                    break;
+                }                
+                
+             } while(respuesta2!=4);
+                     
          
          
          }
+         // llenar el trapecio
          else if (respuesta==3){
              System.out.println("Llenar el trapecio");
              System.out.println(" ");
+             System.out.println("Ingrese el porcentaje");
+             System.out.println("1. 25%");
+             System.out.println("2. 50%");
+             System.out.println("3. 75%");
+             System.out.println("4. 100%");
+             porcenTrape = sc.nextInt();
+             System.out.println(" ");
+             
+             //25%
+             if (porcenTrape==1){
+             }
+             //50%
+             else if (porcenTrape==2){
+             }
+             //75%
+             else if (porcenTrape==3){
+             }
+             //100%
+             else if (porcenTrape==4){
+                 i=1;
+                 j=1;
+                 while(i<=4){
+                     while(j<=12){
+                         System.out.print("* ");
+                            j++;
+                     }
+                     System.out.println(" ");    
+                 j=1;    
+                 i++;
+                 }
+             }
          
          }
              
